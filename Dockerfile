@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get install curl -y
 
 # install the prerequisite patches here so that rvm will install under non-root account.
-RUN apt-get install -y patch gawk g++ gcc make libc6-dev patch libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev unzip
+RUN apt-get install -y patch gawk g++ gcc make libc6-dev libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev unzip libgmp-dev
 
 # Add more up to date Node sources
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
