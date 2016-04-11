@@ -4,8 +4,12 @@ MAINTAINER James Carscadden <james@carscadden.org>
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r railsapp && useradd -r -g railsapp railsapp
 
+# supress debconf
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Prepare for software installs
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates\
     curl \
     && rm -rf /var/lib/apt/lists/*
 
