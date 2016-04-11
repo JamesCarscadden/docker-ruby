@@ -1,6 +1,9 @@
 FROM ubuntu:14.04
 MAINTAINER James Carscadden <james@carscadden.org>
 
+# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
+RUN groupadd -r railsapp && useradd -r -g railsapp railsapp
+
 # Prepare for software installs
 RUN apt-get update && apt-get install -y \
     curl \
