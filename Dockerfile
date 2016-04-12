@@ -47,18 +47,6 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
-
-# Install GOSU for easy step down from root (as taken from redis dockerfile)
-ENV GOSU_VERSION 1.7
-RUN set -x \
-	&& curl -sLo /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
-	&& curl -sLo /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc" \
-	&& export GNUPGHOME="$(mktemp -d)" \
-	&& gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
-	&& gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
-	&& rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc \
-	&& chmod +x /usr/local/bin/gosu \
-	&& gosu nobody true
     
 # INSTALL bower
 RUN npm install bower -g
