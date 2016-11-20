@@ -43,7 +43,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     patch \
     pkg-config \
-    postgresql-server-dev-9.5 \
+    postgresql-server-dev-9.6 \
     sqlite3 \
     unzip \
     zlib1g-dev \
