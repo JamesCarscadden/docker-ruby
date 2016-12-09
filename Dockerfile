@@ -44,6 +44,7 @@ RUN apt-get update && apt-get install -y \
     patch \
     pkg-config \
     postgresql-server-dev-9.6 \
+    postgresql-client-9.6 \
     sqlite3 \
     unzip \
     zlib1g-dev \
