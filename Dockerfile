@@ -52,3 +52,21 @@ RUN apt-get update && apt-get install -y \
 
 # INSTALL bower
 RUN npm install bower -g
+
+# Make a directory for our rails app
+RUN mkdir -p /home/railsapp
+RUN chown railsapp:railsapp /home/railsapp
+
+USER railsapp
+WORKDIR /home/railsapp
+
+# INSTALL RVM
+RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+RUN /bin/bash -l -c "curl -sSL https://get.rvm.io | bash -s stable"
+
+# GET Ruby
+RUN /bin/bash -l -c "rvm install 2.3"
+RUN /bin/bash -l -c "rvm --default use 2.3"
+
+# GET Bundler
+RUN /bin/bash -l -c "gem install bundler"
