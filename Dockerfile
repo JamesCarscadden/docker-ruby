@@ -15,3 +15,6 @@ RUN apt-get update && apt-get install -y \
 
 # INSTALL bower
 RUN npm install bower -g
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
