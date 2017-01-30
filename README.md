@@ -4,7 +4,8 @@ This is a docker container suitable as a starting point for use as a Ruby contai
 
 This environment contains Postgres 9.6 development libraries and client apps, NodeJs, Bower, Bundler and Ruby 2.3.
 
-Forked from vsts-deploy-rails
+This is build off of the official ruby:2.3 container
+
 
 To Use
 
