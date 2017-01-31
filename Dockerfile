@@ -16,5 +16,8 @@ RUN apt-get update && apt-get install -y \
 # INSTALL bower
 RUN npm install bower -g
 
+# Allow bower to run as root without the warning
+RUN echo '{ "allow_root": true }' > /root/.bowerrc
+
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
