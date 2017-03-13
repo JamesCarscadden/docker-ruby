@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
 
 # INSTALL bower
 RUN npm install bower -g
+RUN npm install instanbul -g
 
 # Allow bower to run as root without the warning
 RUN echo '{ "allow_root": true }' > /root/.bowerrc
