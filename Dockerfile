@@ -6,9 +6,13 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 # Add more up to date Postgres sources
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" > /etc/apt/sources.list.d/postgres.list
 RUN curl -sL https://postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+# Add Yarn sources
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update && apt-get install -y \
     nodejs \
+    yarn \
     postgresql-server-dev-9.6 \
     postgresql-client-9.6 \
     build-essential \
@@ -21,12 +25,8 @@ RUN apt-get update && apt-get install -y \
     libfontconfig1-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# INSTALL bower
-RUN npm install bower -g
+# INSTALL instanbul
 RUN npm install istanbul -g
-
-# Allow bower to run as root without the warning
-RUN echo '{ "allow_root": true }' > /root/.bowerrc
 
 # Install PhantomJS
 RUN curl -sLO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
