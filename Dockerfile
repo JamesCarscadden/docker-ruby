@@ -1,10 +1,10 @@
-FROM ruby:2.3
-MAINTAINER James Carscadden <james@carscadden.org>
+FROM ruby:2.4-stretch
+LABEL maintainer="James Carscadden <james@carscadden.org>"
 
 # Add more up to date Node sources
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # Add more up to date Postgres sources
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" > /etc/apt/sources.list.d/postgres.list
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/postgres.list
 RUN curl -sL https://postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 # Add Yarn sources
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -24,9 +24,6 @@ RUN apt-get update && apt-get install -y \
     libfontconfig1 \
     libfontconfig1-dev \
     && rm -rf /var/lib/apt/lists/*
-
-# INSTALL instanbul
-RUN npm install istanbul -g
 
 # Install PhantomJS
 RUN curl -sLO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
