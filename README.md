@@ -2,7 +2,7 @@
 
 This is a docker container suitable as a starting point for use as a Ruby container (most likely for Rails projects).
 
-This environment contains Postgres 9.6 development libraries and client apps, NodeJs, Yarn, Bundler and Ruby 2.4.
+This environment contains Postgres 10.3 development libraries and client apps, NodeJs 9, Yarn, Bundler and Ruby 2.4.
 
 This is build off of the official ruby:2.4-stretch container
 
