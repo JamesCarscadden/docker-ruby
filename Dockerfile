@@ -13,8 +13,8 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.lis
 RUN apt-get update && apt-get install -y \
     nodejs \
     yarn \
-    postgresql-server-dev-10.3 \
-    postgresql-client-10.3 \
+    postgresql-server-dev-10 \
+    postgresql-client-10 \
     build-essential \
     chrpath \
     libssl-dev \
