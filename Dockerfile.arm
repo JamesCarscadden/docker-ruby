@@ -1,4 +1,4 @@
-FROM ruby:2.4-stretch
+FROM ruby:2.5-stretch
 LABEL maintainer="James Carscadden <james@carscadden.org>"
 
 # Add armhf as an architecure, since ruby images uses armel for some reason
