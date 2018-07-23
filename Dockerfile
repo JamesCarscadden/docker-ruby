@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y \
     libfontconfig1 \
     libfontconfig1-dev \
     chromium \
+    chromium-driver \
     && rm -rf /var/lib/apt/lists/*
 
 # throw errors if Gemfile has been modified since Gemfile.lock
