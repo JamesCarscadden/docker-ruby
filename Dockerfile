@@ -2,7 +2,7 @@ FROM ruby:2.5-stretch
 LABEL maintainer="James Carscadden <james@carscadden.org>"
 
 # Add more up to date Node sources
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 # Add more up to date Postgres sources
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/postgres.list
 RUN curl -sL https://postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
